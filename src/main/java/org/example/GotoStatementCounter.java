@@ -8,7 +8,7 @@ import soot.options.Options;
 
 public class GotoStatementCounter {
     public static void main(String[] args) {
-        String className = "LoadClass";
+        String className = "classname for counting go to";
         String classpath = System.getProperty("java.class.path");
         System.out.println("-----" + classpath);
         String cp = classpath.replace("/Applications/IntelliJ IDEA CE.app/Contents/lib/idea_rt.jar","");
