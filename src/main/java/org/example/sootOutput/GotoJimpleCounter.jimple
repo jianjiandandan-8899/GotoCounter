@@ -1,0 +1,195 @@
+public class GotoJimpleCounter extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        GotoJimpleCounter r0;
+
+        r0 := @this: GotoJimpleCounter;
+
+        specialinvoke r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static void main(java.lang.String[])
+    {
+        soot.Body r29;
+        soot.UnitPatchingChain $r30;
+        soot.util.Chain $r21;
+        soot.options.Options $r12, $r13, $r16, $r17, $r18;
+        boolean $z0, $z1, $z2, $z3, $z4;
+        soot.Scene $r11, $r19, $r20;
+        java.util.List $r15, $r25;
+        java.lang.StringBuilder $r1, $r3, $r4, $r7, $r8, $r9, $r32, $r35, $r36, $r38, $r39, $r40, $r41;
+        java.lang.String[] $r14, r45;
+        soot.SootMethod r28;
+        int i0;
+        java.lang.String r0, $r5, r6, $r10, $r34, $r37, $r42;
+        java.io.PrintStream $r2, $r33;
+        java.util.Iterator r22, r26, r31;
+        soot.Unit r44;
+        soot.SootClass r24;
+        java.lang.Object $r23, $r27, $r43;
+
+        r45 := @parameter0: java.lang.String[];
+
+        r0 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String)>("java.class.path");
+
+        $r2 = <java.lang.System: java.io.PrintStream out>;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        $r3 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("-----");
+
+        $r4 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r0);
+
+        $r5 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r2.<java.io.PrintStream: void println(java.lang.String)>($r5);
+
+        r6 = virtualinvoke r0.<java.lang.String: java.lang.String replace(java.lang.CharSequence,java.lang.CharSequence)>("/Applications/IntelliJ IDEA CE.app/Contents/lib/idea_rt.jar", "");
+
+        $r11 = staticinvoke <soot.Scene: soot.Scene v()>();
+
+        $r7 = new java.lang.StringBuilder;
+
+        specialinvoke $r7.<java.lang.StringBuilder: void <init>()>();
+
+        $r8 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r6);
+
+        $r9 = virtualinvoke $r8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(":./src/main/java/org/example/jimple/org/example/jimpleClass:target/classes:/Users/jane/.sdkman/candidates/java/current/jre/lib/rt.jar:/Users/jane/.sdkman/candidates/java/current/jre/lib/jce.jar");
+
+        $r10 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r11.<soot.Scene: void setSootClassPath(java.lang.String)>($r10);
+
+        $r12 = staticinvoke <soot.options.Options: soot.options.Options v()>();
+
+        virtualinvoke $r12.<soot.options.Options: void set_prepend_classpath(boolean)>(1);
+
+        $r13 = staticinvoke <soot.options.Options: soot.options.Options v()>();
+
+        virtualinvoke $r13.<soot.options.Options: void set_output_format(int)>(1);
+
+        $r16 = staticinvoke <soot.options.Options: soot.options.Options v()>();
+
+        $r14 = newarray (java.lang.String)[1];
+
+        $r14[0] = "/Users/jane/Desktop/git-project/counter/src/main/java/org/example/sootOutput";
+
+        $r15 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r14);
+
+        virtualinvoke $r16.<soot.options.Options: void set_process_dir(java.util.List)>($r15);
+
+        $r17 = staticinvoke <soot.options.Options: soot.options.Options v()>();
+
+        virtualinvoke $r17.<soot.options.Options: void set_keep_line_number(boolean)>(1);
+
+        $r18 = staticinvoke <soot.options.Options: soot.options.Options v()>();
+
+        virtualinvoke $r18.<soot.options.Options: void set_src_prec(int)>(3);
+
+        $r19 = staticinvoke <soot.Scene: soot.Scene v()>();
+
+        virtualinvoke $r19.<soot.Scene: void loadNecessaryClasses()>();
+
+        $r20 = staticinvoke <soot.Scene: soot.Scene v()>();
+
+        $r21 = virtualinvoke $r20.<soot.Scene: soot.util.Chain getApplicationClasses()>();
+
+        r22 = interfaceinvoke $r21.<soot.util.Chain: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke r22.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 == 0 goto label8;
+
+        $r23 = interfaceinvoke r22.<java.util.Iterator: java.lang.Object next()>();
+
+        r24 = (soot.SootClass) $r23;
+
+        $r25 = virtualinvoke r24.<soot.SootClass: java.util.List getMethods()>();
+
+        r26 = interfaceinvoke $r25.<java.util.List: java.util.Iterator iterator()>();
+
+     label2:
+        $z4 = interfaceinvoke r26.<java.util.Iterator: boolean hasNext()>();
+
+        if $z4 == 0 goto label7;
+
+        $r27 = interfaceinvoke r26.<java.util.Iterator: java.lang.Object next()>();
+
+        r28 = (soot.SootMethod) $r27;
+
+        $z1 = virtualinvoke r28.<soot.SootMethod: boolean isConcrete()>();
+
+        if $z1 != 0 goto label3;
+
+        goto label2;
+
+     label3:
+        r29 = virtualinvoke r28.<soot.SootMethod: soot.Body retrieveActiveBody()>();
+
+        i0 = 0;
+
+        $r30 = virtualinvoke r29.<soot.Body: soot.UnitPatchingChain getUnits()>();
+
+        r31 = virtualinvoke $r30.<soot.UnitPatchingChain: java.util.Iterator iterator()>();
+
+     label4:
+        $z2 = interfaceinvoke r31.<java.util.Iterator: boolean hasNext()>();
+
+        if $z2 == 0 goto label6;
+
+        $r43 = interfaceinvoke r31.<java.util.Iterator: java.lang.Object next()>();
+
+        r44 = (soot.Unit) $r43;
+
+        $z3 = r44 instanceof soot.jimple.GotoStmt;
+
+        if $z3 == 0 goto label5;
+
+        i0 = i0 + 1;
+
+     label5:
+        goto label4;
+
+     label6:
+        $r33 = <java.lang.System: java.io.PrintStream out>;
+
+        $r32 = new java.lang.StringBuilder;
+
+        specialinvoke $r32.<java.lang.StringBuilder: void <init>()>();
+
+        $r35 = virtualinvoke $r32.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Class: ");
+
+        $r34 = virtualinvoke r24.<soot.SootClass: java.lang.String getName()>();
+
+        $r36 = virtualinvoke $r35.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r34);
+
+        $r38 = virtualinvoke $r36.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", Method: ");
+
+        $r37 = virtualinvoke r28.<soot.SootMethod: java.lang.String getName()>();
+
+        $r39 = virtualinvoke $r38.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r37);
+
+        $r40 = virtualinvoke $r39.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", Goto statements: ");
+
+        $r41 = virtualinvoke $r40.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(i0);
+
+        $r42 = virtualinvoke $r41.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r33.<java.io.PrintStream: void println(java.lang.String)>($r42);
+
+        goto label2;
+
+     label7:
+        goto label1;
+
+     label8:
+        return;
+    }
+}
