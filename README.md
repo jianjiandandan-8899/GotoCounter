@@ -7,7 +7,7 @@ This project is a tool for counting the number of goto statements in Jimple file
 + Output results: Print the calculated number of goto statements to the console
 ## Usage
 1. Convert class files to Jimple:
-   - Place the target Java class files in the GotoCounter/counter/src/main/java/org/example/jimple/org/example/jimpleClass directory.
+   - Place the target Java class files in the GotoCounter/src/main/java/org/example/jimple/org/example/jimpleClass directory.
    - Navigate to the src directory of the project in your command-line interface
    - Run the conversion command to convert the class files to Jimple. 
 `java -cp ./soot-4.5.0-jar-with-dependencies.jar soot.Main -cp ./soot-4.5.0-jar-with-dependencies.jar -pp -process-dir ./jimple/org/example/jimpleClass -f J`
