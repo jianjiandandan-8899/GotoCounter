@@ -23,7 +23,7 @@ public class GotoJimpleCounter1 {
         // 设置 Soot 的选项
         Options.v().set_prepend_classpath(true);
         Options.v().set_output_format(Options.output_format_jimple);
-        Options.v().set_process_dir(Arrays.asList("your jimple file class"));
+        Options.v().set_process_dir(Arrays.asList("your jimple file class. In this case, the directory is Gotocounter/src/main/java/org/example/sootOutput"));
         Options.v().set_keep_line_number(true);
         Options.v().set_src_prec(Options.src_prec_jimple);
 
